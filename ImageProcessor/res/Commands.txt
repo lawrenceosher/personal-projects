@@ -1,0 +1,16 @@
+load beach.jpeg beach
+horizontal-flip beach beachhorizontal
+brighten 10 beachhorizontal beachbright
+vertical-flip beachbright kbv
+blur kbv k
+sharpen k kSharp
+greyscale kSharp kGrey
+sepia kGrey kSepia
+brighten -10 kSepia kDimmer
+red-component kDimmer kRed
+green-component kRed kGreen
+blue-component kGreen kBlue
+value-component kBlue kVal
+intensity-component kVal kIntense
+luma-component kIntense kLuma
+save beach-edited.jpeg kLuma

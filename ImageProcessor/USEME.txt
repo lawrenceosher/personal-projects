@@ -1,0 +1,314 @@
+HOW TO GET INTO DIFFERENT MODES:
+
+	java -jar A6.jar -file -Commands.txt > runs the processor in script mode
+	java -jar A6.jar -text > runs the processor in interactive text mode where a user can manually type in the images they want to process.
+	java -jar A6.jar > GUI mode is run for the processor
+
+HOW TO USE THE IMAGE PROCESSOR IN GUI MODE:
+
+1. Click the Load button and your computer's file directory will pop up. Navigate your directory so you can select the ppm, jpeg, bmp, or png image that you want to load in.
+2. Clicking the Blur button will blur the image.
+3. Clicking the sharpen button will sharpen the image.
+4. Clicking the vertical-flip button will flip the image along its horizontal axis.
+5. Clicking the horizontal-flip button will flip the image along its vertical axis.
+6. If you desire to brighten the image, type in the number value by which you want the image to be brightened by and click the brighten button after.
+7. Clicking the Red-Component button will visualize the red-component of the image.
+8. Clicking the Blue-Component button will visualize the blue-component of the image.
+9. Clicking the Green-Component button will visualize the green-component of the image.
+10. Clicking the Value-Component button will visualize the value-component of the image.
+11. Clicking the Intensity-Component button will visualize the intensity-component of the image.
+12. Clicking the Luma-Component button will visualize the luma-component of the image.
+13. Clicking the Greyscale button will turn the color image into a grey image.
+14. Clicking the Sepia button will turn the color image into an image with a reddish-brown tone.
+15. To save the image after you are done editing, type in the text box next to the Save button the name of the saved image with the extension (.jpeg, .png, .ppm, or .bmp) and click the Save button.
+
+NOTES:
+- Must click load and load an image before completing any operations on the image
+- More than one operation can be applied to an image before saving
+- Can only work on one image at a time. The image you are editing must be selected and display in the window. If you click load again and load in a different image, that image that you now loaded in will be the new image that will be edited.
+- After a button is pressed, the change will be applied to the image and the new image will be displayed in the Image Pane.
+
+
+Script Commands supported:
+
+Load: Loads the image into the image processing application.
+
+load file-path name
+
+file-path represents where the file where the image is loaded from
+name represents what the image will be referred to as throughout the application
+
+Example:
+
+load res/ball.jpeg ball
+
+Conditions:
+
+- load must be the first command typed in when the program is run because you can't do any other commands or operations on images without the image loaded into the application first. 
+- load must be called with a valid extension such as ppm, jpeg, png, or bmp.
+
+-----------------------------------------------------------------------------------------------------
+
+Save: Saves the image to a location on your computer when you done processing the image.
+
+save file-path name
+
+file-path represents the location where the image will be saved to
+name represents the name of the image that will be saved. This is the same as what you've been referring to the image as throughout the program.
+
+Example:
+
+save res/newBall.jpeg ball
+
+Conditions:
+
+- Needs to be called after an operation is successfully done if you want the actual image to change. For example, must be called after load and blur have been called to actual see that the image has been blurred successfully. 
+
+- Save must be called with a valid extension such as ppm, jpeg, png, or bmp.
+
+NOTE: Can load and save images with different extensions.
+
+-----------------------------------------------------------------------------------------------------
+
+Brighten: Brightens or darkens all the pixels of an image.
+
+brighten value old-image-name new-image-name
+
+value represents the amount that the image will be brightened or darkened by
+old-image-name represents the name of the image that you want to operate on
+new-image-name represents the name of the image after it has been operated on
+
+Examples:
+
+brighten 50 ball brighterBall
+
+brighten -20 ball dimmerBall
+
+Conditions:
+
+- If an image has pixels that are already at their maximum value and you try to brighten the image, those pixels will stay the same since they can't exceed their maximum value. Same goes for if the pixels are at their minimum value and you try to dim the image.
+
+- Must be called after load.
+
+-----------------------------------------------------------------------------------------------------
+
+Horizontal-Flip: Flips an image along its vertical axis to essentially mirror the image.
+
+horizontal-flip old-image-name new-image-name
+
+old-image-name represents the name of the image that you want to operate on
+new-image-name represents the name of the image after it has been operated on
+
+Example:
+
+horizontal-flip ball ball-flipped-horizontally
+
+Conditions:
+
+- Must be called after load.
+
+-----------------------------------------------------------------------------------------------------
+
+Vertical-Flip: Flips an image along its horizontal axis to essentially mirror the image.
+
+vertical-flip old-image-name new-image-name
+
+old-image-name represents the name of the image that you want to operate on
+new-image-name represents the name of the image after it has been operated on
+
+Example:
+
+vertical-flip ball ball-flipped-vertically
+
+Conditions:
+
+- Must be called after load.
+
+-----------------------------------------------------------------------------------------------------
+
+Red-Component: Creates a greyscaled image and sets all the channels of each pixel equal to the
+value for the "R" (aka red) component of an RGB.
+
+red-component old-image-name new-image-name
+
+old-image-name represents the name of the image that you want to operate on
+new-image-name represents the name of the image after it has been operated on
+
+Example:
+
+red-component ball ball-red
+
+Conditions:
+
+- Must be called after load.
+-----------------------------------------------------------------------------------------------------
+
+Green-Component: Creates a greyscaled image and sets all the channels of each pixel equal to the
+value for the "G" (aka green) component of an RGB.
+
+green-component old-image-name new-image-name
+
+old-image-name represents the name of the image that you want to operate on
+new-image-name represents the name of the image after it has been operated on
+
+Example:
+
+green-component ball ball-green
+
+Conditions:
+
+- Must be called after load.
+
+
+-----------------------------------------------------------------------------------------------------
+
+Blue-Component: Creates a greyscaled image and sets all the channels of each pixel equal to the
+value for the "B" (aka blue) component of an RGB.
+
+blue-component old-image-name new-image-name
+
+old-image-name represents the name of the image that you want to operate on
+new-image-name represents the name of the image after it has been operated on
+
+Example:
+
+blue-component ball ball-blue
+
+Conditions:
+
+- Must be called after load.
+
+-----------------------------------------------------------------------------------------------------
+
+Value-Component: Creates a greyscaled image and sets all the channels of each pixel equal to the
+maximum value of the three components for each pixel.
+
+value-component old-image-name new-image-name
+
+old-image-name represents the name of the image that you want to operate on
+new-image-name represents the name of the image after it has been operated on
+
+Example:
+
+value-component ball ball-value
+
+Conditions:
+
+- Must be called after load.
+
+-----------------------------------------------------------------------------------------------------
+
+Intensity-Component: Creates a greyscaled image and sets all the channels of each pixel equal to the
+average of the three components for each pixel.
+
+intensity-component old-image-name new-image-name
+
+old-image-name represents the name of the image that you want to operate on
+new-image-name represents the name of the image after it has been operated on
+
+Example:
+
+intensity-component ball ball-intensity
+
+Conditions:
+
+- Must be called after load.
+
+-----------------------------------------------------------------------------------------------------
+
+Luma-Component: Creates a greyscaled image and sets all the channels of each pixel equal to the
+weighted sum of the three components for each pixel.
+
+luma-component old-image-name new-image-name
+
+old-image-name represents the name of the image that you want to operate on
+new-image-name represents the name of the image after it has been operated on
+
+Example:
+
+luma-component ball ball-luma
+
+Conditions:
+
+- Must be called after load.
+
+-----------------------------------------------------------------------------------------------------
+
+Blur: Blurs the image by applying a Gaussian Blur matrix as a kernel to each pixel in the image.
+
+Blur old-image-name new-image-name
+
+old-image-name represents the name of the image that you want to operate on
+new-image-name represents the name of the image after it has been operated on
+
+Example:
+
+blur ball ball-blur
+
+Conditions:
+
+- Must be called after load.
+
+Note: Can be called multiple times in a row to create a more substantial blur effect.
+
+-----------------------------------------------------------------------------------------------------
+
+Sharpen: Sharpens the image by applying a filter kernel that will make the edges more apparent.
+
+sharpen old-image-name new-image-name
+
+old-image-name represents the name of the image that you want to operate on
+new-image-name represents the name of the image after it has been operated on
+
+Example:
+
+sharpen ball ball-sharpen
+
+Conditions:
+
+- Must be called after load.
+
+Note: Can be called multiple times in a row to create a more substantial sharpened effect.
+
+-----------------------------------------------------------------------------------------------------
+
+Greyscale: Converts a Color image into a Greyscale image that is only made up of different grey shades.
+
+greyscale old-image-name new-image-name
+
+old-image-name represents the name of the image that you want to operate on
+new-image-name represents the name of the image after it has been operated on
+
+Example:
+
+greyscale ball ball-greyscale
+
+Conditions:
+
+- Must be called after load.
+
+-----------------------------------------------------------------------------------------------------
+
+Sepia: Converts a color image into a sepia-toned image that has a reddish brown tone.
+
+sepia old-image-name new-image-name
+
+old-image-name represents the name of the image that you want to operate on
+new-image-name represents the name of the image after it has been operated on
+
+Example:
+
+sepia ball ball-sepia
+
+Conditions:
+
+- Must be called after load.
+
+
+
+
+
+
+
+
+
